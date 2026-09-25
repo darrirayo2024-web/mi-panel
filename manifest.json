@@ -1,0 +1,18 @@
+{
+  "name": "Mi Panel",
+  "short_name": "Mi Panel",
+  "description": "Tareas, hábitos, notas, dinero, calendario y música sin anuncios, todo en una sola app.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F5F3FA",
+  "theme_color": "#E8365F",
+  "lang": "es",
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

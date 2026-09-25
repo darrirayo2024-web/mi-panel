@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es" data-theme="auto">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#E8365F">
+<title>Mi Panel</title>
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+<div id="app">
+  <header class="top">
+    <h1 id="title">Mi Panel</h1>
+    <button class="ib" data-a="tab" data-t="ajustes" aria-label="Ajustes"><span id="gear"></span></button>
+  </header>
+  <main id="main"></main>
+  <div id="mini">
+    <button class="mi-main" data-a="playerOpen" aria-label="Abrir reproductor">
+      <span class="cov" id="miniCov"></span>
+      <span class="tt"><b id="miniT"></b><small id="miniA"></small></span>
+    </button>
+    <button class="ib" id="miniPP" data-a="pp" aria-label="Reproducir o pausar"></button>
+    <button class="ib" id="miniNx" data-a="next" aria-label="Siguiente"></button>
+    <i id="miniBar"></i>
+  </div>
+  <nav class="tabs" id="tabs"></nav>
+</div>
+
+<section id="player" aria-label="Reproductor">
+  <div class="pl-top">
+    <button class="ib" data-a="playerClose" aria-label="Cerrar" id="pClose"></button>
+    <b>Reproduciendo</b>
+    <button class="ib" data-a="pQueue" aria-label="Cola" id="pQ"></button>
+  </div>
+  <div class="pl-cov" id="pCov"><span id="pInit">♪</span><canvas id="viz" width="300" height="300"></canvas></div>
+  <div class="pl-meta">
+    <div><h2 id="pTitle"></h2><p id="pArtist"></p></div>
+    <button class="ib" id="pFav" data-a="pFav" aria-label="Favorita"></button>
+  </div>
+  <div class="seek">
+    <input id="seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Posición">
+    <div class="tm"><span id="tCur">0:00</span><span id="tDur">0:00</span></div>
+  </div>
+  <div class="ctl">
+    <button class="ib" id="pShuf" data-a="shuffle" aria-label="Aleatorio"></button>
+    <button class="ib" id="pPrev" data-a="prev" aria-label="Anterior"></button>
+    <button class="play" id="pPP" data-a="pp" aria-label="Reproducir o pausar"></button>
+    <button class="ib" id="pNext" data-a="next" aria-label="Siguiente"></button>
+    <button class="ib" id="pRep" data-a="repeat" aria-label="Repetir"></button>
+  </div>
+  <div class="sec">
+    <button class="pill" id="pRate" data-a="rate">1×</button>
+    <button class="pill" id="pSleep" data-a="sleep"><span id="pSleepI"></span><span>Dormir</span></button>
+    <button class="pill" id="pFx" data-a="fx"><span id="pFxI"></span>Efectos</button>
+  </div>
+  <div class="fxp" id="fxPanel">
+    <div class="chips" style="margin-top:0">
+      <button class="chip" id="vizBtn" data-a="viz">Visualizador</button>
+      <button class="chip" data-a="preset" data-v="0,0,0">Plano</button>
+      <button class="chip" data-a="preset" data-v="7,0,1">Graves</button>
+      <button class="chip" data-a="preset" data-v="-2,4,2">Voz</button>
+      <button class="chip" data-a="preset" data-v="3,-1,6">Brillante</button>
+    </div>
+    <div class="eqr"><span>Graves</span><input class="eqs" data-i="0" type="range" min="-10" max="10" step="1" value="0"><output>0</output></div>
+    <div class="eqr"><span>Medios</span><input class="eqs" data-i="1" type="range" min="-10" max="10" step="1" value="0"><output>0</output></div>
+    <div class="eqr"><span>Agudos</span><input class="eqs" data-i="2" type="range" min="-10" max="10" step="1" value="0"><output>0</output></div>
+  </div>
+  <div class="vol"><span id="volI"></span><input id="vol" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volumen"></div>
+</section>
+
+<div id="sheetBg"><div id="sheetBody" class="sheet"></div></div>
+<div id="toast" role="status"></div>
+<input id="fileIn" type="file" accept="audio/*,.mp3,.m4a,.aac,.flac,.ogg,.opus,.wav" multiple hidden>
+
+<script type="module" src="./js/app.js"></script>
+</body>
+</html>
